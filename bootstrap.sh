@@ -58,6 +58,7 @@ installRequired() {
       sudo pacman -Sy tmux --noconfirm
     fi
   fi
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
   if ! isPackageInstalled rsync; then
     echo "Rsync is not installed. Installing..."
