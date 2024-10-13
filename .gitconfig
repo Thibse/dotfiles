@@ -1,0 +1,12 @@
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	loo = log --oneline
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = "gh:"
