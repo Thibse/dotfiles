@@ -12,8 +12,8 @@ installRequired() {
   if [ -f /etc/os-release ]; then
     source /etc/os-release
 
-    if [ "$ID" == "ubuntu" ]; then
-      echo "Detected Ubuntu."
+    if [ "$ID" == "debian" ] || [ "$ID" == "ubuntu" ]; then
+      echo "Detected Debian/Ubuntu."
       package_manager="apt"
     elif [ "$ID" == "arch" ]; then
       echo "Detected Arch Linux."
