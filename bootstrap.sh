@@ -75,6 +75,7 @@ copyToHome() {
     --exclude "bootstrap.sh" \
     --exclude "README.md" \
     --exclude "nvim-linux64" \
+    --exclude "nvim-linux64.tar.gz" \
     -avh --no-perms . ~;
 }
 
