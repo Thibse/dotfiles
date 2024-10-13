@@ -11,6 +11,11 @@ return {
 	},
 
 	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
+
+	{
 		"folke/which-key.nvim",
 		opts = {
 			win = {
