@@ -7,7 +7,7 @@ return {
     build = ':TSUpdate',
     config = function()
         require('nvim-treesitter.configs').setup({
-            ensure_installed = { 'c', 'lua', 'python', 'tsx', 'typescript', 'vimdoc', 'vim' },
+            ensure_installed = { 'c', 'lua', 'python', 'tsx', 'typescript', 'vimdoc', 'vim', 'markdown' },
 
             auto_install = false,
             highlight = { enable = true },
