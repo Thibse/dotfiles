@@ -90,6 +90,7 @@ return {
 						"vue",
 					},
 				},
+				eslint = {},
 			}
 
 			require("mason").setup()
