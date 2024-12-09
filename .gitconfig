@@ -10,3 +10,5 @@
 	defaultBranch = main
 [url "git@github.com:"]
 	insteadOf = "gh:"
+[safe]
+	directory = /workspaces/*
