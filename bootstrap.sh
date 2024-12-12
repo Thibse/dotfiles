@@ -87,7 +87,7 @@ installRequired
 copyToHome
 
 echo "Sync neovim lazy packages..."
-nvim --headless "+Lazy! sync" +qa
+nvim --headless "+Lazy! sync" +qa > /dev/null
 echo "Synced neovim lazy."
 
 sudo chsh -s "$(command -v zsh)" "$USER"
