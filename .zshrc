@@ -40,6 +40,9 @@ setopt hist_ignore_space
 alias ls='ls --color'
 alias config='git --git-dir=$HOME/Projects/setup.git/ --work-tree=$HOME'
 
+# lang
+LANG=en_US.utf-8
+
 # Vars
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="nvim"
