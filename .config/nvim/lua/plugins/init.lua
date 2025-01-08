@@ -45,4 +45,6 @@ return {
 			exclude = { filetypes = { "dashboard" } },
 		},
 	},
+
+	'tpope/vim-fugitive',
 }
