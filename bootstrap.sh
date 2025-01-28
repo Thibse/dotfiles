@@ -90,6 +90,10 @@ echo "Sync neovim lazy packages..."
 nvim --headless "+Lazy! sync" +qa > /dev/null
 echo "Synced neovim lazy."
 
+echo "Install zinit + plugins..."
+zsh -c "source ~/.zshrc"
+echo "Installed zinit plugins."
+
 echo "Install tmux plugins..."
 ~/.tmux/plugins/tpm/bin/install_plugins
 echo "Installed tmux plugins."
