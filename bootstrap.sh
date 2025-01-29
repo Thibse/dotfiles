@@ -40,7 +40,7 @@ installRequired() {
       sudo apt update
       sudo apt install fd-find ripgrep -y
 
-      wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz --no-verbose
+      wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz --no-verbose
 
       tar -xzf nvim-linux64.tar.gz
       sudo cp -r nvim-linux64/* /usr
