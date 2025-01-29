@@ -42,8 +42,8 @@ installRequired() {
 
       wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz --no-verbose
 
-      tar -xzf nvim-linux64.tar.gz
-      sudo cp -r nvim-linux64/* /usr
+      tar -xzf nvim-linux-x86_64.tar.gz
+      sudo cp -r nvim-linux-x86_64/* /usr
     elif [ "$package_manager" == "pacman" ]; then
       sudo pacman -Sy neovim ripgrep --noconfirm
     fi
