@@ -1,0 +1,23 @@
+{
+    "workbench.colorTheme": "Catppuccin Macchiato",
+
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindings": [
+      {
+        "before": ["<leader>","s", "f"],
+        "commands": ["workbench.action.quickOpen"]
+      },
+      {
+        "before": ["<leader>", "s", "p"],
+        "commands": ["workbench.action.showCommands"]
+      }
+    ]
+}
