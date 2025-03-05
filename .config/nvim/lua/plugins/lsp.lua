@@ -91,6 +91,7 @@ return {
 					},
 				},
 				eslint = {},
+				omnisharp = {},
 			}
 
 			require("mason").setup()
