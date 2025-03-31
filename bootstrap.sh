@@ -80,7 +80,7 @@ copyToHome() {
     --exclude "README.md" \
     --exclude "nvim-linux64" \
     --exclude "nvim-linux64.tar.gz" \
-    -avh --no-perms . ~;
+    -ah --no-perms . ~;
 }
 
 installRequired
