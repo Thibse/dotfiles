@@ -11,3 +11,5 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
+vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
