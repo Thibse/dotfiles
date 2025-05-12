@@ -5,12 +5,13 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "williamboman/mason.nvim", config = true },
+			{ "mason-org/mason.nvim", config = true },
 			"mason-org/mason-registry",
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"mason-org/mason-lspconfig.nvim",
 
 			"hrsh7th/cmp-nvim-lsp",
+
+			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -51,9 +52,9 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-			local vue_typescript_plugin = require("mason-registry")
-				.get_package("vue-language-server")
-				:get_install_path() .. "/node_modules/@vue/language-server" .. "/node_modules/@vue/typescript-plugin"
+			local vue_language_server_path = vim.fn.expand("$MASON/packages")
+				.. "/vue-language-server"
+				.. "/node_modules/@vue/language-server"
 
 			local servers = {
 				lua_ls = {
@@ -69,14 +70,13 @@ return {
 						},
 					},
 				},
-				volar = {},
 				ts_ls = {
 					init_options = {
 						plugins = {
 							{
 								name = "@vue/typescript-plugin",
-								location = vue_typescript_plugin,
-								languages = { "javascript", "typescript", "vue" },
+								location = vue_language_server_path,
+								languages = { "vue" },
 							},
 						},
 					},
@@ -90,28 +90,17 @@ return {
 						"vue",
 					},
 				},
+				volar = {},
 				eslint = {},
 				omnisharp = {},
 			}
 
-			require("mason").setup()
-
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua", -- Format Lua code
-				"prettier"
-			})
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+			for server, config in pairs(servers) do
+				vim.lsp.config(server, config)
+			end
 
 			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- Overriding only values explicitly passed by the server configuration above
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
+				ensure_installed = vim.tbl_keys(servers),
 			})
 		end,
 	},
