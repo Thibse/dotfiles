@@ -6,6 +6,12 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
+		require("telescope").setup({
+			pickers = {
+				find_files = { find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } }
+			}
+		})
+
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
