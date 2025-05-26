@@ -90,7 +90,7 @@ return {
 						"vue",
 					},
 				},
-				volar = {},
+				vue_ls = {},
 				eslint = {},
 				omnisharp = {},
 			}
