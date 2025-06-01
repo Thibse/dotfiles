@@ -1,0 +1,100 @@
+@import "macchiato.css";
+
+* {
+  border: none;
+  font-family: "Iosevka NF", "Symbols Nerd Font Mono";
+  font-size: 14px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  min-height: 30px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+span {
+  margin-right: 5px;
+}
+
+#workspaces,
+#language,
+#custom-dunst,
+#custom-media,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery {
+  border-radius: 10px;
+  background-color: @base;
+  color: @text;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+#pulseaudio {
+  color: @peach;
+}
+
+#custom-dunst {
+  color: @teal;
+}
+
+#network {
+  color: @mauve;
+}
+
+#bluetooth {
+  color: @lavender;
+}
+
+#language {
+  color: @yellow;
+}
+
+#workspaces button {
+  padding: 0px;
+  padding-left: 2px;
+  padding-right: 1px;
+  margin: 0px;
+}
+
+#workspaces button.active {
+  color: @rosewater;
+}
+
+#workspaces {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#bluetooth,
+#pulseaudio {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-right: 5px;
+  margin-right: 0;
+}
+
+#network,
+#custom-dunst {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 5px;
+}
+
+#clock {
+  margin-right: 0;
+}
+
+#workspaces {
+  margin-left: 10px;
+}
+
+#battery {
+  margin-right: 10px;
+  background: @color1;
+  color: @background;
+}
