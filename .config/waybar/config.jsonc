@@ -66,6 +66,7 @@
     "on-click": "activate",
   },
   "hyprland/language": {
+    "format": "  {}",
     "format-de": "de",
     "format-en": "en",
   },
