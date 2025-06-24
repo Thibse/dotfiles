@@ -7,8 +7,15 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				mappings = {
+					i = { ["<C-B>"] = require("telescope.actions.layout").toggle_preview },
+					n = { ["<C-B>"] = require("telescope.actions.layout").toggle_preview }
+				}
+			},
 			pickers = {
-				find_files = { find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } }
+				find_files = { find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } },
+				git_branches = { previewer = false }
 			}
 		})
 
