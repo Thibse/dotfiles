@@ -1,6 +1,34 @@
 -- This lsp config is based on kickstart.nvim
 -- https://github.com/nvim-lua/kickstart.nvim
 
+local kind_icons = {
+	Text = "",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰇽",
+	Variable = "󰂡",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+	Struct = "",
+	Event = "",
+	Operator = "󰆕",
+	TypeParameter = "󰅲",
+}
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -242,6 +270,19 @@ return {
 					-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 					--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 				}),
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(_, item)
+						item.menu = "	(" .. item.kind .. ")  "
+						item.kind = kind_icons[item.kind]
+						return item
+					end
+				}
+
 				sources = {
 					{
 						name = "lazydev",
