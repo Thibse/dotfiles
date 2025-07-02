@@ -281,8 +281,7 @@ return {
 						item.kind = kind_icons[item.kind]
 						return item
 					end
-				}
-
+				},
 				sources = {
 					{
 						name = "lazydev",
