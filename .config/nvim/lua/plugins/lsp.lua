@@ -80,9 +80,17 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-			local vue_language_server_path = vim.fn.expand("$MASON/packages")
+			local vue_language_server_path = vim.fn.expand "$MASON/packages" 
 				.. "/vue-language-server"
 				.. "/node_modules/@vue/language-server"
+
+			local tsserver_filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+			local vue_plugin = {
+				name = '@vue/typescript-plugin',
+				location = vue_language_server_path,
+				languages = { 'vue' },
+				configNamespace = 'typescript',
+			}
 
 			local servers = {
 				lua_ls = {
@@ -98,25 +106,26 @@ return {
 						},
 					},
 				},
-				ts_ls = {
-					init_options = {
-						plugins = {
-							{
-								name = "@vue/typescript-plugin",
-								location = vue_language_server_path,
-								languages = { "vue" },
+				vtsls = {
+					settings = {
+						vtsls = {
+							tsserver = {
+								globalPlugins = {
+									vue_plugin,
+								},
 							},
 						},
 					},
-					filetypes = {
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
-						"vue",
+					filetypes = tsserver_filetypes,
+				},
+				ts_ls = {
+
+					init_options = {
+						plugins = {
+							vue_plugin,
+						},
 					},
+					filetypes = tsserver_filetypes,
 				},
 				vue_ls = {},
 				eslint = {},
