@@ -118,15 +118,6 @@ return {
 					},
 					filetypes = tsserver_filetypes,
 				},
-				ts_ls = {
-
-					init_options = {
-						plugins = {
-							vue_plugin,
-						},
-					},
-					filetypes = tsserver_filetypes,
-				},
 				vue_ls = {},
 				eslint = {},
 				omnisharp = {},
