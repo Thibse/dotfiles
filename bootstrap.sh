@@ -47,6 +47,13 @@ installRequired() {
     elif [ "$package_manager" == "pacman" ]; then
       sudo pacman -Sy neovim ripgrep --noconfirm
     fi
+
+    echo "Install Neovim Treesitter CLI"
+    wget https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz --no-verbose
+    gunzip tree-sitter-linux-x64.gz
+    sudo mv tree-sitter-linux-x64 /usr/bin/tree-sitter
+    sudo chmod +x /usr/bin/tree-sitter
+
   fi
 
   if ! isPackageInstalled tmux; then
