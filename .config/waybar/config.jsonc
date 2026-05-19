@@ -40,12 +40,12 @@
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-disconnected": "󰖪 ",
     "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz / {signalStrength} %)   - {ipaddr}",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
   },
   "custom/media": {
-    "format": "{icon} {}",
+    "format": "{icon} {text}",
     "return-type": "json",
     "max-length": 40,
     "format-icons": {
