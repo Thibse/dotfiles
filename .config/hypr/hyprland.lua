@@ -256,6 +256,7 @@ hl.bind(
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("flatpak run app.zen_browser.zen"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + C", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("rofi -show p -modi 'p:rofi-power-menu'"))
 hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("rofi-bluetooth"))
@@ -334,6 +335,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl n-p spotify ext"), { locked 
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl -p spotify play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl -p spotify play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl -p spotify previous"), { locked = true })
+hl.bind(mainMod .. "+ SHIFT + P", hl.dsp.exec_cmd("playerctl -p spotify play-pause"), { locked = true })
 hl.bind(mainMod .. "+ SHIFT + A", hl.dsp.exec_cmd("playerctl -p spotify next"), { locked = true })
 hl.bind(mainMod .. "+ SHIFT + D", hl.dsp.exec_cmd("playerctl -p spotify previous"), { locked = true })
 hl.bind("SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("playerctl -p spotify volume 0.05+"), { locked = true })
@@ -370,6 +372,24 @@ hl.window_rule({
 	},
 
 	no_focus = true,
+})
+
+hl.window_rule({
+	name = "keepass",
+	match = {
+		class = "^org.keepassxc.KeePassXC$",
+	},
+	float = true,
+})
+
+hl.window_rule({
+	name = "spotify",
+	match = {
+		class = "spotify",
+	},
+	float = true,
+	move = { 100, 122 },
+	size = { 1024, 629 },
 })
 
 -- Layer rules also return a handle.
