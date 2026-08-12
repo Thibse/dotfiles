@@ -38,7 +38,7 @@ installRequired() {
     echo "Neovim is not installed. Installing..."
     if [ "$package_manager" == "apt" ]; then
       sudo apt update
-      sudo apt install fd-find ripgrep -y
+      sudo apt install fd-find ripgrep wget -y
 
       wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz --no-verbose
 
